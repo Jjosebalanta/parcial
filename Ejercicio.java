@@ -4,6 +4,7 @@ import java.util.Scanner;
 class Personaje {
     private String nombre;
     private int puntosDeVida;
+    //en mayusculas porque es constate y el "private final" es porque no va a cambiar***
     private final int MAX_DANO = 30;
     private final int MIN_DANO = 10;
 
@@ -11,9 +12,10 @@ class Personaje {
         this.nombre = nombre;
         this.puntosDeVida = 100;
     }
-
+    //firma la firam de este metodo es publico no retora tipo de bariable personage
     public void atacar(Personaje oponente) {
         Random rand = new Random();
+        //para de clarar un aleatorio
         int dano = rand.nextInt((MAX_DANO - MIN_DANO) + 1) +
                 MIN_DANO;
         oponente.recibirDano(dano);
@@ -44,9 +46,9 @@ class Personaje {
 class JuegoLucha {
     private Personaje jugador1;
     private Personaje jugador2;
-
+     // el publuc es el constructor
     public JuegoLucha(String nombre1, String nombre2) {
-
+        //estos son los atrivutos de constructor
         this.jugador1 = new Personaje(nombre1);
         this.jugador2 = new Personaje(nombre2);
     }
@@ -88,5 +90,5 @@ class JuegoLucha {
         JuegoLucha juego = new JuegoLucha(nombre1, nombre2);
         juego.iniciarPelea();
     }
-    
+
 }
