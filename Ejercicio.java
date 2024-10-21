@@ -15,7 +15,7 @@ class Personaje {
     //firma la firam de este metodo es publico no retora tipo de bariable personage
     public void atacar(Personaje oponente) {
         Random rand = new Random();
-        //para de clarar un aleatorio
+        //para de clarar un aleatorio rand
         int dano = rand.nextInt((MAX_DANO - MIN_DANO) + 1) +
                 MIN_DANO;
         oponente.recibirDano(dano);
