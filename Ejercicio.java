@@ -8,6 +8,7 @@ class Personaje {
     //en mayusculas porque es constate y el "private final" es porque no va a cambiar***
     private final int MAX_DANO = 30;
     private final int MIN_DANO = 10;
+    private boolean incrementado = false;
 
     public Personaje(String nombre) {
         this.nombre = nombre;
@@ -34,12 +35,13 @@ class Personaje {
         }
     }
     public void recibirincrimetodevida(int incremeto) {
-        this.puntosDeVida +=incremeto ;
-        if (this.puntosDeVida < 15) {
-            this.puntosDeVida +=20;
+        this.puntosDeVida += incremeto;
+        if (this.puntosDeVida < 15 && !incrementado) {
+            this.puntosDeVida++;
+            incrementado = true; 
         }
     }
-
+    
     public boolean estaVivo() {
         return this.puntosDeVida > 0;
     }
@@ -54,9 +56,13 @@ class Personaje {
     public String cuchillo(){
         return this.cuchillo;
     }
+    
+    public void resetIncremento() {
+        incrementado = false; 
+    
 }
 
-class JuegoLucha {
+static class JuegoLucha {
     private Personaje jugador1;
     private Personaje jugador2;
      // el publuc es el constructor
@@ -110,6 +116,9 @@ class JuegoLucha {
 
         JuegoLucha juego = new JuegoLucha(nombre1, nombre2);
         juego.iniciarPelea();
+    }
+ 
+
     }
 
 }
